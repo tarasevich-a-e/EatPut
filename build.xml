@@ -15,6 +15,7 @@
     <path id="common_library">
         <pathelement location="lib/javax.servlet.jar"/>
         <pathelement location="lib/log4j-1.2.15.jar"/>
+        <pathelement location="lib/javax.mail-1.4.5.jar"/>
         <pathelement location="src/main/resources/log4j.properties"/>
     </path>
 

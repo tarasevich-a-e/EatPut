@@ -19,6 +19,18 @@ public class MyServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(MyServlet.class);
 
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        if (!req.getParameter("email").equals("")){
+            Sender sender = new Sender("shop.meduza@gmail.com", "a741852963");
+            String str_text = "Привет с работы!";
+            String str_zag = "Новая задача";
+
+            sender.send(str_zag,str_text,"shop.meduza@gmail.com", req.getParameter("email"));
+        }
+    }
+
+    @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.info("Запрос получен PUT");
 
