@@ -5,8 +5,26 @@
     <title>E-mail</title>
 </head>
 <body>
-<form id="myform" action="/EatPut/eat" method="get"></form>
-<input type="text" name="email" form="myform">
-<input type="submit" name="Отправить" form="myform">
+<form id="myform" action="/eat" method="get"></form>
+<div>
+    <input type="radio" name="server" value="gmail" form="myform">
+    <span>gmail</span>
+    <input type="radio" name="server" value="hmailserver" form="myform" checked>
+    <span>hmailserver</span>
+    <br>
+    <table>
+        <tr>
+            <td>FROM:</td>
+            <td><input type="text" name="emailTO" form="myform" value="tarasevich-a-e@yandex.ru"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>TO:</td>
+            <td><input type="text" name="emailFROM" form="myform" value="blackuser@redmail.ru"></td>
+            <td><input type="password" name="passFROM" form="myform" value="black"></td>
+        </tr>
+    </table>
+    <input type="submit" name="Отправить" form="myform">
+</div>
 </body>
 </html>

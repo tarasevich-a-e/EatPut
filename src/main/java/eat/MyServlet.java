@@ -21,12 +21,22 @@ public class MyServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-        if (!req.getParameter("email").equals("")){
-            Sender sender = new Sender("shop.meduza@gmail.com", "a741852963");
+
+        if ((!req.getParameter("emailTO").equals("")) && (!req.getParameter("emailFROM").equals("")) && (!req.getParameter("passFROM").equals(""))){
+            String serv = req.getParameter("server");
+            String emailFrom = req.getParameter("emailFROM");
+            String passFrom = req.getParameter("passFROM");
+            String emailTo = req.getParameter("emailTO");
+
+            if(req.getParameter("server").equals("gmail")){
+                emailFrom ="shop.meduza@gmail.com";
+                passFrom = "a741852963";
+            }
+            Sender sender = new Sender(serv, emailFrom, passFrom);
             String str_text = "Привет с работы!";
             String str_zag = "Новая задача";
 
-            sender.send(str_zag,str_text,"shop.meduza@gmail.com", req.getParameter("email"));
+            sender.send(serv, str_zag,str_text,emailFrom, emailTo);
         }
     }
 
